@@ -11,6 +11,7 @@ namespace Função
             int N3 = int.Parse(Console.ReadLine());
 
             int resultado = Maior(N1, N2, N3);
+            Console.WriteLine("Maior = " + resultado);
         }
         static int Maior(int x, int y, int z) {
 
