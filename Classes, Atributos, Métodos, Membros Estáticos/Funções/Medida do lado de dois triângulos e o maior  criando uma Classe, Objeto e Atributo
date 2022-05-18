@@ -3,7 +3,7 @@
 qual dos triângulos possui a maior área. A formula para calcular a área de um 
 triângulo a partir das medidas de seus lados a, b e c é a seguinte(fórmula de Heron):
 
-        raiz
+       raiz
 área = Math.Sqrt(p * (p - XA) * (p - XB) * (p - XC));    onde    p = (XA + XB + XC) / 2.0;
 
 Entrada:
