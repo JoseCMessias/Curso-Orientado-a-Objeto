@@ -1,0 +1,33 @@
+/*
+Digite um número N e depois N valores inteiros. Mostrar a soma dos N valores digitados
+
+Entrada e Saída:
+Quantos números inteiros você vai digitar? 3
+Valor #: 10
+Valor #: 7
+Valor #: 8
+Soma = 25
+*/
+
+using System;
+
+namespace valores
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Quantos números inteiros voçê vai digitar? ");
+            int N = int.Parse(Console.ReadLine());
+
+            int soma = 0;
+            for(int i = 1; i <= N; i++)
+            {
+                Console.Write("Valor #{0}: ", i);
+                int valor = int.Parse(Console.ReadLine());
+                soma += valor;
+            }
+            Console.WriteLine("Soma = " + soma);
+        }
+    }
+}
