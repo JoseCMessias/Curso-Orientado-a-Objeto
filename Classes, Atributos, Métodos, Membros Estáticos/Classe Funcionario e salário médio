@@ -1,0 +1,58 @@
+/*
+4) Fazer um programa para ler nome e salário de dois funcionários. Depois, mostrar o salário
+médio dos funcionários.
+
+Entrada:
+Dados do primeiro funcionário:
+Nome: Carlos Silva
+Salário: 6300.00
+Dados do segundo funcionário:
+Nome: Ana Marques
+Salário: 6700.00
+
+Saída:
+Salário médio = 6500.00
+*/
+
+namespace Classes
+{
+    class Funcionario
+    {
+        public string Nome;
+        public double Salario;
+    }
+}
+
+using System;
+using System.Globalization;
+
+namespace Classes
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Funcionario f1 = new Funcionario();
+            Funcionario f2 = new Funcionario();
+
+            Console.WriteLine("Dados do primeiro funcionário: ");
+            Console.Write("Nome: ");
+            var s = Console.ReadLine().Split(' ');
+            f1.Nome = s[0];
+            f1.Nome = s[1];
+            Console.Write("Salário: ");
+            f1.Salario = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            Console.WriteLine("Dados do segundo funcionário: ");
+            Console.Write("Nome: ");
+            s = Console.ReadLine().Split(' ');
+            f2.Nome = s[0];
+            f2.Nome = s[1];
+            Console.Write("Salário: ");
+            f2.Salario = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            double Media = (f1.Salario + f2.Salario) / 2;
+            Console.WriteLine("Salário médio = " + Media.ToString("F2", CultureInfo.InvariantCulture));
+        }
+    }
+}

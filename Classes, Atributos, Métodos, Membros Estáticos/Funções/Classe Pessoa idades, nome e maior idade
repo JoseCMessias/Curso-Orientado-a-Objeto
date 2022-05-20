@@ -1,0 +1,58 @@
+/*
+3) Fazer um programa para ler os dados de duas pessoas, depois mostrar o nome da pessoa mais velha.
+
+Entrada:
+Dados da primeira pessoa:
+Nome: Maria
+Idade: 17
+Dados da segunda pessoa:
+Nome: Joao
+Idade: 16
+
+Saída:
+Pessoa mais velha: Maria
+*/
+
+namespace Classes
+{
+    class Pessoa
+    {
+        public double Idade;
+        public string Nome;
+    }
+}
+
+using System;
+
+namespace Classes
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Pessoa P1 = new Pessoa();
+            Pessoa P2 = new Pessoa();
+
+            Console.WriteLine("Dados da primeira pessoa: ");
+            Console.Write("Nome: ");
+            P1.Nome = Console.ReadLine();
+            Console.Write("Idadde: ");
+            P1.Idade = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Dados da segunda pessoa: ");
+            Console.Write("Nome: ");
+            P2.Nome = Console.ReadLine();
+            Console.Write("Idadde: ");
+            P2.Idade = int.Parse(Console.ReadLine());
+
+            if (P1.Idade > P2.Idade)
+            {
+                Console.WriteLine("Pessoas mais velha é " + P1.Nome);
+            }
+            else
+            {
+                Console.WriteLine("Pessoas mais velha é " + P1.Nome);
+            }
+        }
+    }
+}
