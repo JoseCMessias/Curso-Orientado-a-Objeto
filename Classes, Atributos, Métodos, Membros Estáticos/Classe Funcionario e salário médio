@@ -14,6 +14,7 @@ Saída:
 Salário médio = 6500.00
 */
 
+//Classe Funcionarios
 namespace Classes
 {
     class Funcionario
@@ -23,6 +24,8 @@ namespace Classes
     }
 }
 
+
+//Programa Principal
 using System;
 using System.Globalization;
 

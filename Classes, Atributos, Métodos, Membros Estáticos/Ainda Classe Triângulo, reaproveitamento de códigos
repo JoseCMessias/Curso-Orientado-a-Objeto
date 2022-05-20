@@ -1,9 +1,9 @@
 /*
-2) Fazer um programa para ler as medidas dos lados de dois triângulos e dizer 
+1) Fazer um programa para ler as medidas dos lados de dois triângulos e dizer 
 qual dos triângulos possui a maior área. A formula para calcular a área de um 
 triângulo a partir das medidas de seus lados a, b e c é a seguinte(fórmula de Heron):
 
-       raiz
+        raiz
 área = Math.Sqrt(p * (p - XA) * (p - XB) * (p - XC));    onde    p = (XA + XB + XC) / 2.0;
 
 Entrada:
@@ -22,8 +22,9 @@ Saída:
 Maior área: Y
 */
 
+
 //Classe Triângulo
-classe Triangulo:
+using System;
 
 namespace Triangulo
 {
@@ -32,12 +33,19 @@ namespace Triangulo
         public double A;
         public double B;
         public double C;
+
+        //Dentro da Classe triângulo que se cálcula a área.       
+        public double Area()  
+        {
+            double p = (A + B + C) / 2.0;
+            double Raiz = Math.Sqrt(p * (p - A) * (p - B) * (p - C));
+            return Raiz;
+        }
     }
 }
 
-//Programa Principal
+//Programa principal
 using System;
-
 using System.Globalization;
 
 namespace Triangulo
@@ -60,12 +68,11 @@ namespace Triangulo
             Y.A = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
             Y.B = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
             Y.C = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-
-            double p = (X.A + X.B + X.C) / 2.0;
-            double areaX = Math.Sqrt(p * (p - X.A) * (p - X.B) * (p - X.C));
-
-            p = (Y.A + Y.B + Y.C) / 2.0;
-            double areaY = Math.Sqrt(p * (p - Y.A) * (p - Y.B) * (p - Y.C));
+            
+            //Lembrar de botar o parentese, pois é um método.
+            //Depois de fazer o Calculo dentro da Classe Triângulo, se expressa a área assim.
+            double areaX = X.Area();
+            double areaY = Y.Area();
 
             Console.WriteLine("Área de X = " + areaX.ToString("F4", CultureInfo.InvariantCulture));
             Console.WriteLine("Área de Y = " + areaY.ToString("F4", CultureInfo.InvariantCulture));

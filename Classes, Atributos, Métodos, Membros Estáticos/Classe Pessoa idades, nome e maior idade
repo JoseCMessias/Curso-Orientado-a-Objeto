@@ -13,6 +13,7 @@ Saída:
 Pessoa mais velha: Maria
 */
 
+//Classe Pessoa
 namespace Classes
 {
     class Pessoa
@@ -22,6 +23,7 @@ namespace Classes
     }
 }
 
+//Programa Principal
 using System;
 
 namespace Classes
