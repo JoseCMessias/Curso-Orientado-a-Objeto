@@ -1,0 +1,106 @@
+/*
+5) Fazer um programa para ler os dados de um produto em estoque(nome, preço e quantidade no estoque). 
+Em seguida:
+* Mostrar os dados do produto (nome, preço, quantidade no estoque, valor total no estoque)
+* Realizar uma entrada no estoque e mostrar novamente os dados do produto
+* Realizar uma saída no estoque e mostrar novamente os dados do produto
+
+Para resolver esse problema, você deve criar uma CLASSE conforme projeto a baixo:
+_________________________________________
+Produto
+_________________________________________
+-Nome: String
+-Preco: double
+-Quantidade: int
+_________________________________________
++ValorTotalEmEstoque(): double
++AdicionarProdutos(quantity: iny): void
++RemoverProdutos(quantity: int): void
+_________________________________________
+
+EXEMPLO:
+
+Entrada
+Entre os dados do produto:
+Nome: TV
+Preço: 900.00
+Quantidade em estoque: 10
+
+Saída
+Dados do produto: TV, $900.00, 10 unidades, Tota: $9000.00
+
+Digite o número de produtos a ser adicionado ao estoque: 5
+
+Dados atualizados: TV, $900.00, 15 unidades, Total: $1350.00
+
+Digite o número de produtos a ser removido do estoque: 3
+
+Dados atualizados: TV, $900.00, 12 unidades, Total: $ 10800.00
+*/
+
+//Classe Produto
+namespace DadosDoProduto
+{
+    class Produto
+    {
+        public string Nome;
+        public double Preco;
+        public int Quantidade;
+
+        public int AdicionarAoEstoque;
+        public int RemoverDoEstoque;
+    }
+}
+
+//Programa Principal
+using System;
+
+using System.Globalization;
+
+namespace DadosDoProduto
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Produto P = new Produto();
+
+            Console.WriteLine("Entre os dados do produto");
+            Console.Write("Nome: ");
+            P.Nome = Console.ReadLine();
+            Console.Write("Preço: ");
+            P.Preco = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            Console.Write("Quantidade em estoque: ");
+            P.Quantidade = int.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            Console.WriteLine();
+
+            double Total = P.Quantidade * P.Preco;
+
+            Console.WriteLine("Dados do produto: " + P.Nome + ", " + " $ " + P.Preco.ToString("F2", CultureInfo.InvariantCulture) + ", "
+            + P.Quantidade + " unidade, " + " Total: $ " + Total.ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine();
+
+            Console.Write("Digite o número de produtos a ser adcionado ao estoque: ");
+            P.AdicionarAoEstoque = int.Parse(Console.ReadLine());
+            Console.WriteLine();
+
+            int ContAdicao = P.Quantidade + P.AdicionarAoEstoque;
+            double TotalDaAdicao = P.Preco * ContAdicao;           
+
+            Console.WriteLine("Dados atualizados: " + P.Nome + ", " + " $ " + P.Preco.ToString("F2", CultureInfo.InvariantCulture) + ", "
+            + ContAdicao + " Unidades, " + "Total: $ " + TotalDaAdicao.ToString("F2", CultureInfo.InvariantCulture);
+            Console.WriteLine();
+
+            Console.Write("Digite o número de produto a ser removido do estoque: ");
+            P.RemoverDoEstoque = int.Parse(Console.ReadLine());
+            Console.WriteLine();
+
+            int ContRemocao = ContAdicao - P.RemoverDoEstoque;
+            double TotalDepoisRemocao = ContRemocao * P.Preco;           
+
+            Console.WriteLine("Dados atualizados: " + P.Nome + ", " + " $ " + P.Preco.ToString("F2", 
+            CultureInfo.InvariantCulture) + ", "+ ContRemocao 
+            + " Unidades, " + "Total: $ " + TotalDepoisRemocao.ToString("F2", CultureInfo.InvariantCulture)); Console.ReadLine();
+        }
+    }
+}
