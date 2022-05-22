@@ -1,4 +1,4 @@
-# Curso-C#-Orientado-a-Objeto
+# Curso-C#-Programação-Orientado-a-Objetos
 Nesse espaço, compartilho a dinâmica executada durante o curso. 
 
 ## CSharp
