@@ -39,6 +39,9 @@ Dados atualizados: TV, $900.00, 12 unidades, Total: $ 10800.00
 */
 
 //Classe Produto
+using System;
+using System.Globalization;
+
 namespace DadosDoProduto
 {
     class Produto
@@ -47,10 +50,33 @@ namespace DadosDoProduto
         public double Preco;
         public int Quantidade;
 
-        public int AdicionarAoEstoque;
-        public int RemoverDoEstoque;
+        public double ValorTotalEmEstoque()
+        {
+            return Preco * Quantidade;
+        }
+
+        public void AdicionarProdutos(int quantidade)
+        {
+            Quantidade += quantidade;
+        }
+
+        public void RemoverProduto(int quantidade)
+        {
+            Quantidade -= quantidade;
+        }
+
+        public override string ToString()
+        {
+            return Nome + ", $ " 
+                + Preco.ToString("F2", CultureInfo.InvariantCulture) 
+                + ", " 
+                + Quantidade 
+                + " unidades, Total: $ " 
+                + ValorTotalEmEstoque().ToString("F2", CultureInfo.InvariantCulture);
+        }
     }
 }
+
 
 //Programa Principal
 using System;
@@ -72,35 +98,26 @@ namespace DadosDoProduto
             P.Preco = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
             Console.Write("Quantidade em estoque: ");
             P.Quantidade = int.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
             Console.WriteLine();
+            Console.WriteLine("Dados do produto: " + P);
 
-            double Total = P.Quantidade * P.Preco;
-
-            Console.WriteLine("Dados do produto: " + P.Nome + ", " + " $ " + P.Preco.ToString("F2", CultureInfo.InvariantCulture) + ", "
-            + P.Quantidade + " unidade, " + " Total: $ " + Total.ToString("F2", CultureInfo.InvariantCulture));
             Console.WriteLine();
+            Console.Write("Dgite o número de produtos a ser adicionado ao estoque: ");
+            int qte1 = int.Parse(Console.ReadLine());
+            P.AdicionarProdutos(qte1);
 
-            Console.Write("Digite o número de produtos a ser adcionado ao estoque: ");
-            P.AdicionarAoEstoque = int.Parse(Console.ReadLine());
             Console.WriteLine();
+            Console.WriteLine("Dados atualizados: " + P);
 
-            int ContAdicao = P.Quantidade + P.AdicionarAoEstoque;
-            double TotalDaAdicao = P.Preco * ContAdicao;           
-
-            Console.WriteLine("Dados atualizados: " + P.Nome + ", " + " $ " + P.Preco.ToString("F2", CultureInfo.InvariantCulture) + ", "
-            + ContAdicao + " Unidades, " + "Total: $ " + TotalDaAdicao.ToString("F2", CultureInfo.InvariantCulture));
             Console.WriteLine();
+            Console.Write("Digite o número de produtos a ser removido do estoque: ");
+            int qtd2 = int.Parse(Console.ReadLine());
+            P.RemoverProduto(qtd2);
 
-            Console.Write("Digite o número de produto a ser removido do estoque: ");
-            P.RemoverDoEstoque = int.Parse(Console.ReadLine());
             Console.WriteLine();
-
-            int ContRemocao = ContAdicao - P.RemoverDoEstoque;
-            double TotalDepoisRemocao = ContRemocao * P.Preco;           
-
-            Console.WriteLine("Dados atualizados: " + P.Nome + ", " + " $ " + P.Preco.ToString("F2", 
-            CultureInfo.InvariantCulture) + ", "+ ContRemocao 
-            + " Unidades, " + "Total: $ " + TotalDepoisRemocao.ToString("F2", CultureInfo.InvariantCulture)); Console.ReadLine();
+            Console.WriteLine("Dados atualizados: " + P);
+            Console.ReadLine();
         }
     }
 }
