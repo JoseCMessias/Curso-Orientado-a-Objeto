@@ -88,7 +88,7 @@ namespace DadosDoProduto
             double TotalDaAdicao = P.Preco * ContAdicao;           
 
             Console.WriteLine("Dados atualizados: " + P.Nome + ", " + " $ " + P.Preco.ToString("F2", CultureInfo.InvariantCulture) + ", "
-            + ContAdicao + " Unidades, " + "Total: $ " + TotalDaAdicao.ToString("F2", CultureInfo.InvariantCulture);
+            + ContAdicao + " Unidades, " + "Total: $ " + TotalDaAdicao.ToString("F2", CultureInfo.InvariantCulture));
             Console.WriteLine();
 
             Console.Write("Digite o número de produto a ser removido do estoque: ");
