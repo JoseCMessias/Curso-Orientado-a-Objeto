@@ -21,3 +21,57 @@ AREA = 12.00
 PERÍMETRO = 14.00
 DIAGONAL = 5.00
 
+//Clase Retângulo
+using System;
+
+namespace ExercicioPOO
+{
+    class Retangulo
+    {
+        public double Largura;
+        public double Altura;
+
+        public double Area()
+        {
+            return Largura * Altura;
+        }
+
+        public double Perimetro()
+        {
+            return (Largura + Altura) * 2;
+        }
+
+        public double Diagonal()
+        {
+            return Math.Sqrt(Math.Pow(Largura, 2.0) + Math.Pow(Altura, 2.0));
+        }      
+    }
+}
+
+//Programa Principal
+using System;
+using System.Globalization;
+
+namespace ExercicioPOO
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Retangulo A;
+            A = new Retangulo();
+
+            Console.WriteLine("Entre a largura e altura do retângulo:");
+            A.Largura = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            A.Altura = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            double area = A.Area();
+            double perimetro = A.Perimetro();
+            double diagonal = A.Diagonal();
+
+            Console.WriteLine("AREA = " + area.ToString("F2",CultureInfo.InvariantCulture));
+            Console.WriteLine("Perímetro = " + perimetro.ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("DIAGONAL = " + diagonal.ToString("F2", CultureInfo.InvariantCulture));
+        }
+    }
+}
