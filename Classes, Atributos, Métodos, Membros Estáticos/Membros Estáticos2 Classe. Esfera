@@ -12,8 +12,9 @@ Volume: 113.04
 Valor de PI: 3.14
 _____________________________
 
+//Classe Calculadora
 
-namespace MembrosEstativos
+namespace Exercicio
 {
     internal class Calculadora
     {
@@ -24,7 +25,6 @@ namespace MembrosEstativos
             //C = 2·π·r
             return 2 * pi * r;
         }
-
         public double Volume(double r)
         {
             //V = (4/3)πr3
@@ -32,28 +32,29 @@ namespace MembrosEstativos
         }
     }
 }
+
 //Programa Principal
 
 using System;
 using System.Globalization;
 
-namespace MembrosEstaticos
+namespace Exercicio
 {
     class Program {
 
         static void Main(string[] args)
-        {         
-            C
+        {
+            Calculadora calc = new Calculadora();
 
             Console.Write("Entre o valor do raio: ");
             double raio = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
-            double circ = Circunferencia(raio);
-            double vol = Volume(raio);
+            double circ = calc.Circunferencia(raio);
+            double vol = calc.Volume(raio);
 
             Console.WriteLine("Circunferência: " + circ.ToString("F2", CultureInfo.InvariantCulture));
             Console.WriteLine("Volume: " + vol.ToString("F2", CultureInfo.InvariantCulture));
-            Console.WriteLine("Valor de pi: " + pi.ToString("F2", CultureInfo.InvariantCulture));
-        }     
+            Console.WriteLine("Valor de pi: " + calc.pi.ToString("F2", CultureInfo.InvariantCulture));
+        }
     }
 }
