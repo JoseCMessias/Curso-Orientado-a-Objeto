@@ -1,0 +1,45 @@
+
+
+//Classe Calculadora
+namespace Exercicio
+{
+    internal class Calculadora
+    {
+        public static double pi = 3.14;
+
+        public static double Circunferencia(double r)
+        {
+            //C = 2·π·r
+            return 2 * pi * r;
+        }
+        public static double Volume(double r)
+        {
+            //V = (4/3)πr3
+            return Math.Pow(r, 3.0) * pi * (4.0 / 3);
+        }
+    }
+}
+
+//Programa Principal
+
+using System;
+using System.Globalization;
+
+namespace Exercicio
+{
+    class Program {
+
+        static void Main(string[] args)
+        {
+            Console.Write("Entre o valor do raio: ");
+            double raio = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            double circ = Calculadora.Circunferencia(raio);
+            double vol = Calculadora.Volume(raio);
+
+            Console.WriteLine("Circunferência: " + circ.ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("Volume: " + vol.ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("Valor de pi: " + Calculadora.pi.ToString("F2", CultureInfo.InvariantCulture));
+        }
+    }
+}
