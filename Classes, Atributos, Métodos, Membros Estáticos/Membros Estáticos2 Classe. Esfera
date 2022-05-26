@@ -13,4 +13,47 @@ Valor de PI: 3.14
 _____________________________
 
 
+namespace MembrosEstativos
+{
+    internal class Calculadora
+    {
+        public double pi = 3.14;
+
+        public double Circunferencia(double r)
+        {
+            //C = 2·π·r
+            return 2 * pi * r;
+        }
+
+        public double Volume(double r)
+        {
+            //V = (4/3)πr3
+            return Math.Pow(r, 3.0) * pi * (4.0 / 3);
+        }
+    }
+}
 //Programa Principal
+
+using System;
+using System.Globalization;
+
+namespace MembrosEstaticos
+{
+    class Program {
+
+        static void Main(string[] args)
+        {         
+            C
+
+            Console.Write("Entre o valor do raio: ");
+            double raio = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            double circ = Circunferencia(raio);
+            double vol = Volume(raio);
+
+            Console.WriteLine("Circunferência: " + circ.ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("Volume: " + vol.ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("Valor de pi: " + pi.ToString("F2", CultureInfo.InvariantCulture));
+        }     
+    }
+}
