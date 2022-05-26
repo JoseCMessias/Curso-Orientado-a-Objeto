@@ -1,0 +1,52 @@
+Fazer um programa para ler um valor númerico qualquer, e daí mostrar
+quanto seria o valor de uma circunferência e do volume de uma esfera
+para um raio daquele valor. Informar também o valor de PI com duas 
+casas decimais.
+____________________________
+Entrada:
+Entre o valor do raio: 3.0
+
+Saída:
+Circunferência: 18:84
+Volume: 113.04
+Valor de PI: 3.14
+_____________________________
+
+
+//Programa Principal
+
+using System;
+using System.Globalization;
+
+namespace MembrosEstaticos
+{
+    class Program {
+
+        static double pi = 3.14;
+
+        static void Main(string[] strings)
+        {         
+            Console.Write("Entre o valor do raio: ");
+            double raio = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            double circ = Circunferencia(raio);
+            double vol = Volume(raio);
+
+            Console.WriteLine("Circunferência: " + circ.ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("Volume: " + vol.ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("Valor de pi: " + pi.ToString("F2", CultureInfo.InvariantCulture));
+        }
+
+        static double Circunferencia(double r)
+        {
+            //C = 2·π·r
+            return 2 * pi * r;
+        }
+
+        static double Volume(double r)
+        {
+            //V = (4/3)πr3
+            return Math.Pow(r, 3.0) * pi * (4.0 / 3);
+        }
+    }
+}
